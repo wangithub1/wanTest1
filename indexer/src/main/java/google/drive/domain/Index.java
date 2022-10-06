@@ -16,6 +16,10 @@ public class Index {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    private String keywords;
+
+    private String fileKey;
+
     @PostPersist
     public void onPostPersist() {
         Indexed indexed = new Indexed(this);

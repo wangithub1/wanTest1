@@ -11,6 +11,10 @@ public class VideoProcessed extends AbstractEvent {
 
     private Long id;
 
+    public VideoProcessed(Video aggregate) {
+        super(aggregate);
+    }
+
     public VideoProcessed() {
         super();
     }

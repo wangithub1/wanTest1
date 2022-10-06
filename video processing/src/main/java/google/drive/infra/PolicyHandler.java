@@ -33,8 +33,9 @@ public class PolicyHandler {
         System.out.println(
             "\n\n##### listener ProcessVideo : " + fileUploaded + "\n\n"
         );
-        // Sample Logic //
 
+        // Sample Logic //
+        Video.processVideo(event);
     }
     // keep
 
