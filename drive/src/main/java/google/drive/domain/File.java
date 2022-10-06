@@ -1,6 +1,7 @@
 package google.drive.domain;
 
 import google.drive.DriveApplication;
+import google.drive.domain.FileDelete;
 import google.drive.domain.FileUploaded;
 import java.util.Date;
 import java.util.List;
@@ -20,10 +21,17 @@ public class File {
 
     private String type;
 
+    private Long size;
+
+    private String status;
+
     @PostPersist
     public void onPostPersist() {
         FileUploaded fileUploaded = new FileUploaded(this);
         fileUploaded.publishAfterCommit();
+
+        FileDelete fileDelete = new FileDelete(this);
+        fileDelete.publishAfterCommit();
     }
 
     public static FileRepository repository() {

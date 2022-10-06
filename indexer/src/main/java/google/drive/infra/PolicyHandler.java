@@ -37,6 +37,26 @@ public class PolicyHandler {
         // Sample Logic //
         Index.makeIndex(event);
     }
+
+    @Autowired
+    google.drive.external.IndexService indexService;
+
+    @StreamListener(
+        value = KafkaProcessor.INPUT,
+        condition = "headers['type']=='FileDelete'"
+    )
+    public void wheneverFileDelete_DeleteIndex(@Payload FileDelete fileDelete) {
+        FileDelete event = fileDelete;
+        System.out.println(
+            "\n\n##### listener DeleteIndex : " + fileDelete + "\n\n"
+        );
+        // REST Request Sample
+
+        // indexService.getIndex(/** mapping value needed */);
+
+        // Sample Logic //
+
+    }
     // keep
 
 }

@@ -37,6 +37,26 @@ public class PolicyHandler {
         // Sample Logic //
         Video.processVideo(event);
     }
+
+    @Autowired
+    google.drive.external.VideoService videoService;
+
+    @StreamListener(
+        value = KafkaProcessor.INPUT,
+        condition = "headers['type']=='FileDelete'"
+    )
+    public void wheneverFileDelete_DeleteVideo(@Payload FileDelete fileDelete) {
+        FileDelete event = fileDelete;
+        System.out.println(
+            "\n\n##### listener DeleteVideo : " + fileDelete + "\n\n"
+        );
+        // REST Request Sample
+
+        // videoService.getVideo(/** mapping value needed */);
+
+        // Sample Logic //
+
+    }
     // keep
 
 }

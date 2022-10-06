@@ -39,6 +39,9 @@ logging:
     org.hibernate.type: trace
     org.springframework.cloud: debug
 
+api:
+  url:
+    video processing: localhost:8084
 
 server:
   port: 8084
@@ -69,4 +72,7 @@ spring:
           destination: google.drive
           contentType: application/json
 
+api:
+  url:
+    video processing: video processing:8080
 
