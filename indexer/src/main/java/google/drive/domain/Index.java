@@ -16,9 +16,10 @@ public class Index {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String keywords;
-
     private String fileKey;
+
+    @ElementCollection
+    private List<String> keywords;
 
     @PostPersist
     public void onPostPersist() {
