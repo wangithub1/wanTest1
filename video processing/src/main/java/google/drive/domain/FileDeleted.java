@@ -7,7 +7,7 @@ import lombok.*;
 
 @Data
 @ToString
-public class FileDelete extends AbstractEvent {
+public class FileDeleted extends AbstractEvent {
 
     private Long id;
     // keep

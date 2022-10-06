@@ -43,12 +43,14 @@ public class PolicyHandler {
 
     @StreamListener(
         value = KafkaProcessor.INPUT,
-        condition = "headers['type']=='FileDelete'"
+        condition = "headers['type']=='FileDeleted'"
     )
-    public void wheneverFileDelete_DeleteIndex(@Payload FileDelete fileDelete) {
-        FileDelete event = fileDelete;
+    public void wheneverFileDeleted_DeleteIndex(
+        @Payload FileDeleted fileDeleted
+    ) {
+        FileDeleted event = fileDeleted;
         System.out.println(
-            "\n\n##### listener DeleteIndex : " + fileDelete + "\n\n"
+            "\n\n##### listener DeleteIndex : " + fileDeleted + "\n\n"
         );
         // REST Request Sample
 
