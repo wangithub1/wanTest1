@@ -15,6 +15,10 @@ public class Video {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    private String videoUrl;
+
+    private Long fileId;
+
     public static VideoRepository repository() {
         VideoRepository videoRepository = VideoProcessingApplication.applicationContext.getBean(
             VideoRepository.class
